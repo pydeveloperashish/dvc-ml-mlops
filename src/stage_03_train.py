@@ -1,4 +1,3 @@
-from pyexpat import model
 from src.utils.all_utils import create_directory, read_yaml, save_local_df
 import argparse
 import os
@@ -7,7 +6,6 @@ import joblib
 from pprint import pprint
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn import preprocessing
 label_encoder = preprocessing.LabelEncoder()
 
