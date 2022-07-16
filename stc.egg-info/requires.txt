@@ -2,6 +2,3 @@ dvc
 pandas
 scikit-learn
 joblib
-
-# local packages -
--e .
