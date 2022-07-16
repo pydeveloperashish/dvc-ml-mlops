@@ -3,15 +3,18 @@ stages:
   split_data:
     cmd: python3 src/stage_02_split_data.py --config=config/config.yaml --params=params.yaml
     deps:
+    - path: artifacts/raw_local_dir/data.csv
+      md5: 8b0bd12c2f94288b7f6fa9f1ed6a129b
+      size: 37061
     - path: config/config.yaml
-      md5: 1603078f45777113e495c26fe1a7702c
-      size: 342
+      md5: 380e88c37957866fbcf9edb87b59d63d
+      size: 392
     - path: src/stage_02_split_data.py
       md5: be833c4ba194c52e1e23c0eff2606074
       size: 1777
     - path: src/utils/all_utils.py
-      md5: dfe0c683e6990fd1f779e1d23e549e81
-      size: 491
+      md5: f906445bd8b5071dd622401f73ab181d
+      size: 695
     params:
       params.yaml:
         base.random_state: 42
@@ -29,14 +32,14 @@ stages:
     cmd: python3 src/stage_01_load_save.py --config=config/config.yaml
     deps:
     - path: config/config.yaml
-      md5: 1603078f45777113e495c26fe1a7702c
-      size: 342
+      md5: 380e88c37957866fbcf9edb87b59d63d
+      size: 392
     - path: src/stage_01_load_save.py
       md5: 3f04a9a4f77f6b235e9c9940d5e54a3e
       size: 1097
     - path: src/utils/all_utils.py
-      md5: dfe0c683e6990fd1f779e1d23e549e81
-      size: 491
+      md5: f906445bd8b5071dd622401f73ab181d
+      size: 695
     outs:
     - path: artifacts/raw_local_dir/data.csv
       md5: 8b0bd12c2f94288b7f6fa9f1ed6a129b
@@ -49,16 +52,39 @@ stages:
       md5: 81870870e985cd5a9db8ade16c9253e7
       size: 25978
     - path: config/config.yaml
-      md5: 1603078f45777113e495c26fe1a7702c
-      size: 342
+      md5: 380e88c37957866fbcf9edb87b59d63d
+      size: 392
     - path: src/stage_03_train.py
-      md5: f68e5fc4acc8fc144c474886e0d0b11f
-      size: 2117
+      md5: 57859eb9d8ca4fcbec3fe7b701194d63
+      size: 2030
     - path: src/utils/all_utils.py
-      md5: dfe0c683e6990fd1f779e1d23e549e81
-      size: 491
+      md5: f906445bd8b5071dd622401f73ab181d
+      size: 695
     outs:
     - path: artifacts/model_dir/RandomForest.model
-      md5: fd839793c94d4a70b78fb43186b6816d
-      size: 1392154
+      md5: 3f0deaa0cd24841fc1c1c211ae3b89f9
+      size: 1420810
+      isexec: true
+  evaluate:
+    cmd: python3 src/stage_04_evaluate.py --config=config/config.yaml --params=params.yaml
+    deps:
+    - path: artifacts/model_dir/RandomForest.model
+      md5: 3f0deaa0cd24841fc1c1c211ae3b89f9
+      size: 1420810
+    - path: artifacts/split_data_dir/test.csv
+      md5: d02aef681f46821c931622d50ea0cbf7
+      size: 11199
+    - path: config/config.yaml
+      md5: 380e88c37957866fbcf9edb87b59d63d
+      size: 392
+    - path: src/stage_04_evaluate.py
+      md5: 26e13bdaef1cdff87689b6f0f4d462bd
+      size: 2408
+    - path: src/utils/all_utils.py
+      md5: f906445bd8b5071dd622401f73ab181d
+      size: 695
+    outs:
+    - path: artifacts/reports_dir/scores.json
+      md5: 8a20b2c12402accfb0cebe9b1805d54a
+      size: 38
       isexec: true
