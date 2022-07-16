@@ -1,0 +1,7 @@
+data_source: https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction
+
+artifacts:
+  artifacts_dir: artifacts
+  raw_local_dir: raw_local_dir
+  raw_local_file: heart.csv
+  
