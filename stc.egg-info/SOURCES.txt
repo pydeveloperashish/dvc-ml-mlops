@@ -1,9 +1,0 @@
-README.md
-setup.py
-src/__init__.py
-src/stage_01_load_save.py
-stc.egg-info/PKG-INFO
-stc.egg-info/SOURCES.txt
-stc.egg-info/dependency_links.txt
-stc.egg-info/requires.txt
-stc.egg-info/top_level.txt

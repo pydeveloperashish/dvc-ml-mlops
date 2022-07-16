@@ -1,4 +1,0 @@
-dvc
-pandas
-scikit-learn
-joblib
