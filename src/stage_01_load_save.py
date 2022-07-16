@@ -1,5 +1,4 @@
-from readline import remove_history_item
-from src.utils.all_utils import create_directory, read_yaml
+from src.utils.all_utils import create_directory, read_yaml 
 import argparse
 import os
 import pandas as pd
